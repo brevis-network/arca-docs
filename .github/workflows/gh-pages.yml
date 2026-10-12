@@ -2,10 +2,21 @@ name: Deploy mdBook site to GitHub Pages
 
 on:
   push:
-    branches: [main, deploy]
+    branches: [deploy]
   pull_request:
-    branches: [main, deploy]
+    branches: [deploy]
   workflow_dispatch:
+    inputs:
+      source-ref:
+        description: mdBook source branch or commit
+        type: string
+        default: deploy
+  workflow_call:
+    inputs:
+      source-ref:
+        description: Validated deploy commit to publish
+        type: string
+        required: true
 
 permissions:
   contents: read
@@ -20,6 +31,8 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.source-ref || github.ref }}
 
       - name: Setup mdBook
         uses: peaceiris/actions-mdbook@v1
@@ -42,7 +55,7 @@ jobs:
           path: book
 
   deploy:
-    if: github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/deploy')
+    if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
     permissions:

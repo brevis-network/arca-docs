@@ -10,4 +10,4 @@ create-missing = false
 [output.html]
 additional-css = ["theme/custom.css"]
 additional-js = ["theme/mermaid.js"]
-site-url = "/arca-docs/"
+site-url = "/"

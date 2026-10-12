@@ -1,0 +1,93 @@
+name: Sync GitBook main to mdBook deploy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gitbook-sync-${{ github.event_name == 'pull_request' && github.ref || 'main' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout GitBook source
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install validation tools
+        run: python -m pip install pytest==9.0.3 ruff==0.14.0
+
+      - name: Test conversion
+        run: |
+          pytest -q
+          ruff check
+
+      - name: Prepare mdBook source
+        run: python .github/scripts/process_markdown.py --output .mdbook
+
+      - name: Setup mdBook
+        uses: peaceiris/actions-mdbook@v1
+        with:
+          mdbook-version: '0.5.0-beta.1'
+
+      - name: Validate converted source
+        run: mdbook build .mdbook --dest-dir /tmp/arca-book
+
+      - name: Upload converted source
+        uses: actions/upload-artifact@v4
+        with:
+          name: mdbook-source
+          path: .mdbook
+          include-hidden-files: true
+
+  sync:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: prepare
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    outputs:
+      commit: ${{ steps.commit.outputs.sha }}
+    steps:
+      - name: Download converted source
+        uses: actions/download-artifact@v4
+        with:
+          name: mdbook-source
+          path: converted
+
+      - name: Publish converted source to deploy branch
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: deploy
+          publish_dir: converted
+          enable_jekyll: true
+          exclude_assets: ''
+
+      - name: Read deploy commit
+        id: commit
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          sha=$(gh api "repos/$GITHUB_REPOSITORY/git/ref/heads/deploy" --jq .object.sha)
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+
+  publish:
+    needs: sync
+    permissions:
+      contents: write
+    uses: ./.github/workflows/gh-pages.yml
+    with:
+      source-ref: ${{ needs.sync.outputs.commit }}
