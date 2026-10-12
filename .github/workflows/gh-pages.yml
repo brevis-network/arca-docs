@@ -1,0 +1,75 @@
+name: Deploy mdBook site to GitHub Pages
+
+on:
+  push:
+    branches: [deploy]
+  pull_request:
+    branches: [deploy]
+  workflow_dispatch:
+    inputs:
+      source-ref:
+        description: mdBook source branch or commit
+        type: string
+        default: deploy
+  workflow_call:
+    inputs:
+      source-ref:
+        description: Validated deploy commit to publish
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: gh-pages-${{ github.event_name == 'pull_request' && github.ref || 'publish' }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.source-ref || github.ref }}
+
+      - name: Setup mdBook
+        uses: peaceiris/actions-mdbook@v1
+        with:
+          mdbook-version: '0.5.0-beta.1'
+
+      - name: Build with mdBook
+        run: mdbook build
+
+      - name: Copy custom domain configuration if present
+        run: |
+          if [ -f CNAME ]; then
+            cp CNAME book/CNAME
+          fi
+
+      - name: Upload site artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: book
+          path: book
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Download site artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: book
+          path: book
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: ./book
