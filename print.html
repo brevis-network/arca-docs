@@ -1,0 +1,451 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Arca</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon-de23e50b.svg">
+        <link rel="shortcut icon" href="favicon-8114d1fc.png">
+        <link rel="stylesheet" href="css/variables-8adf115d.css">
+        <link rel="stylesheet" href="css/general-2459343d.css">
+        <link rel="stylesheet" href="css/chrome-cc69e1fb.css">
+        <link rel="stylesheet" href="css/print-9e4910d8.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="fonts/fonts-9644e21d.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="mdbook-highlight-css" href="highlight-493f70e1.css">
+        <link rel="stylesheet" id="mdbook-tomorrow-night-css" href="tomorrow-night-4c0ae647.css">
+        <link rel="stylesheet" id="mdbook-ayu-highlight-css" href="ayu-highlight-56612340.css">
+
+        <!-- Custom theme stylesheets -->
+        <link rel="stylesheet" href="theme/custom-26febc59.css">
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+            window.path_to_searchindex_js = "searchindex-88778dfd.js";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="toc-41a4fe84.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="mdbook-body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="mdbook-sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("mdbook-sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+                sidebar_toggle.checked = false;
+            }
+            if (sidebar === 'visible') {
+                sidebar_toggle.checked = true;
+            } else {
+                html.classList.remove('sidebar-visible');
+            }
+        </script>
+
+        <nav id="mdbook-sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="toc.html"></iframe>
+            </noscript>
+            <div id="mdbook-sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="mdbook-page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="mdbook-menu-bar-hover-placeholder"></div>
+                <div id="mdbook-menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="mdbook-sidebar-toggle" class="icon-button" for="mdbook-sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="mdbook-sidebar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg></span>
+                        </label>
+                        <button id="mdbook-theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="mdbook-theme-list">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M371.3 367.1c27.3-3.9 51.9-19.4 67.2-42.9L600.2 74.1c12.6-19.5 9.4-45.3-7.6-61.2S549.7-4.4 531.1 9.6L294.4 187.2c-24 18-38.2 46.1-38.4 76.1L371.3 367.1zm-19.6 25.4l-116-104.4C175.9 290.3 128 339.6 128 400c0 3.9 .2 7.8 .6 11.6c1.8 17.5-10.2 36.4-27.8 36.4H96c-17.7 0-32 14.3-32 32s14.3 32 32 32H240c61.9 0 112-50.1 112-112c0-2.5-.1-5-.2-7.5z"/></svg></span>
+                        </button>
+                        <ul id="mdbook-theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="mdbook-theme-ayu">Ayu</button></li>
+                        </ul>
+                        <button id="mdbook-search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="mdbook-searchbar">
+                            <span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z"/></svg></span>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Arca</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <span class=fa-svg id="print-button"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M128 0C92.7 0 64 28.7 64 64v96h64V64H354.7L384 93.3V160h64V93.3c0-17-6.7-33.3-18.7-45.3L400 18.7C388 6.7 371.7 0 354.7 0H128zM384 352v32 64H128V384 368 352H384zm64 32h32c17.7 0 32-14.3 32-32V256c0-35.3-28.7-64-64-64H64c-35.3 0-64 28.7-64 64v96c0 17.7 14.3 32 32 32H64v64c0 35.3 28.7 64 64 64H384c35.3 0 64-28.7 64-64V384zm-16-88c-13.3 0-24-10.7-24-24s10.7-24 24-24s24 10.7 24 24s-10.7 24-24 24z"/></svg></span>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="mdbook-search-wrapper" class="hidden">
+                    <form id="mdbook-searchbar-outer" class="searchbar-outer">
+                        <div class="search-wrapper">
+                            <input type="search" id="mdbook-searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="mdbook-searchresults-outer" aria-describedby="searchresults-header">
+                            <div class="spinner-wrapper">
+                                <span class=fa-svg id="fa-spin"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M304 48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zm0 416c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM48 304c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm464-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48zM142.9 437c18.7-18.7 18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zm0-294.2c18.7-18.7 18.7-49.1 0-67.9S93.7 56.2 75 75s-18.7 49.1 0 67.9s49.1 18.7 67.9 0zM369.1 437c18.7 18.7 49.1 18.7 67.9 0s18.7-49.1 0-67.9s-49.1-18.7-67.9 0s-18.7 49.1 0 67.9z"/></svg></span>
+                            </div>
+                        </div>
+                    </form>
+                    <div id="mdbook-searchresults-outer" class="searchresults-outer hidden">
+                        <div id="mdbook-searchresults-header" class="searchresults-header"></div>
+                        <ul id="mdbook-searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('mdbook-sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('mdbook-sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#mdbook-sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="mdbook-content" class="content">
+                    <main>
+                        <h1 id="1-overview"><a class="header" href="#1-overview">1. Overview</a></h1>
+<div align="center"><figure><img src="assets/doc (1).png" alt=""><figcaption></figcaption></figure></div>
+
+<p>Arca is an open, verifiable AI data platform, allowing contributors to submit private AI workflow data to earn rewards.</p>
+<p>Arca starts with the sessions people already have: work done with AI models in coding tools and desktop chat, optionally paired with the code repo or workspace the session worked in.</p>
+<p>A session may include prompts, responses, tool usage, code changes, debugging steps and, if attached, repo or workspace context. Arca anonymizes it on your machine before upload and submits it for reward evaluation.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="2-what-is-arca"><a class="header" href="#2-what-is-arca">2. What is Arca</a></h1>
+<h2 id="what-contributors-can-submit"><a class="header" href="#what-contributors-can-submit">What Contributors Can Submit</a></h2>
+<p>Contributors can submit private AI sessions from their coding tools, including:</p>
+<ul>
+<li>Claude Code and Codex sessions from desktop apps, CLI tools, VS Code extensions, and Cursor cloud agent.</li>
+<li>Eligible Claude Cowork sessions imported from Claude Desktop.</li>
+<li>Prompts, responses, tool usage, and other interactions within eligible sessions.</li>
+<li>Optional repo or workspace snapshots associated with those sessions.</li>
+</ul>
+<p>Contributors can choose which sessions to submit, and Arca anonymizes them before upload. </p>
+<h2 id="how-arca-works"><a class="header" href="#how-arca-works">How Arca Works</a></h2>
+<p>Arca has two contributor-facing components:</p>
+<div class="table-wrapper">
+<table>
+<thead>
+<tr><th>Component</th><th>What it does</th></tr>
+</thead>
+<tbody>
+<tr><td><a href="#7-contributor-dashboard-guide">Contributor Dashboard</a></td><td>Web app where Contributors sign in, connect a GitHub account, browse open calls for data, track submissions and view earnings.</td></tr>
+<tr><td><a href="#6-arca-app-guide">Arca App</a></td><td>Desktop app that finds eligible Claude Code, Codex, and Cowork sessions, anonymizes selected data, and packages each session for upload.</td></tr>
+</tbody>
+</table>
+</div>
+<p>The system flow:</p>
+<pre><code class="language-mermaid">flowchart TD
+    Contributor["Arca App"] --&gt; TraceApp["Find eligible AI sessions"]
+    TraceApp --&gt; Upload["Anonymize and upload selected sessions"]
+    Contributor --&gt; Dashboard["Contributor Dashboard"]
+    Upload --&gt; Quote["Generate quote range"]
+    Quote --&gt; Confirm["Accept quote and confirm submission"]
+    Confirm --&gt; Dashboard
+    Dashboard --&gt; Evaluate["Evaluate uploads"]
+    Evaluate --&gt; Review["Reward approved"]
+    Review --&gt; Reward["Payout settlement"]
+</code></pre>
+<p>For Contributors, the workflow is straightforward:</p>
+<ol>
+<li>Use the Arca App to find eligible AI sessions from supported local tools or connected accounts.</li>
+<li>Select the sessions to submit, and optionally add the relevant repo or workspace.</li>
+<li>Get a quote range once the upload completes and passes preliminary checks.</li>
+<li>Accept the quote and confirm submission for final review.</li>
+<li>Track its status in the Contributor Dashboard. Approved submissions are paid in USDC on the weekly payout.</li>
+</ol>
+<h2 id="notes-for-contributors"><a class="header" href="#notes-for-contributors">Notes for Contributors</a></h2>
+<p>Contributors should understand:</p>
+<ul>
+<li>Selected sessions and optional repo or workspace uploads may contain prompts, responses, tool outputs, code, and other private content. Arca anonymizes submitted data before upload, but you should still review what you choose to submit.</li>
+<li>Quote ranges are preliminary estimates and may change during final review. Rewards are issued only for approved submissions.</li>
+<li>If you don’t accept the quote, withdraw and the upload is deleted.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="3-why-arca"><a class="header" href="#3-why-arca">3. Why Arca</a></h1>
+<p>AI-assisted work creates more than a final output. It also creates a record of how people prompt models, explore ideas, debug problems, use tools, and iterate toward a result.</p>
+<p>This workflow data can be valuable, but it is difficult to evaluate and reward fairly:</p>
+<ul>
+<li>Public code and discussions provide limited new insight because they are already widely available.</li>
+<li>Final outputs rarely reveal the prompts, failed attempts, debugging steps, and AI-assisted decisions behind them.</li>
+<li>Session data may be duplicated, incomplete, manipulated, or unrelated to the submitted work.</li>
+<li>Private workflows provide richer context but may contain sensitive prompts, responses, tool outputs, code, and repo content.</li>
+</ul>
+<h2 id="arcas-approach"><a class="header" href="#arcas-approach">Arca’s Approach</a></h2>
+<p>Arca enables Contributors to securely submit private AI coding workflows in privacy-preserving way:</p>
+<ul>
+<li>Selected data is anonymized before upload.</li>
+<li>Arca applies authenticity, eligibility, duplication, and quality checks to each submission.</li>
+<li>Public, duplicate, incomplete or ineligible submissions, and submissions with too little real AI interaction, may be rejected.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="4-core-concepts"><a class="header" href="#4-core-concepts">4. Core Concepts</a></h1>
+<h2 id="contributor"><a class="header" href="#contributor">Contributor</a></h2>
+<p>A Contributor is a user who submits AI sessions to Arca and may earn rewards when their submissions are approved. Arca has two contributor-facing <a href="#how-arca-works">components</a>: the Contributor Dashboard and the Arca App.</p>
+<h2 id="call-for-data"><a class="header" href="#call-for-data">Call-for-Data</a></h2>
+<p>A call for data describes the kind of sessions Arca is collecting right now and what it asks for.</p>
+<p>Examples of Call-for-Data fields:</p>
+<ul>
+<li>Programming language.</li>
+<li>AI model.</li>
+<li>Repo category.</li>
+<li>Repo type.</li>
+<li>Detailed description.</li>
+</ul>
+<p>Contributors can browse these open calls in the <a href="#7-contributor-dashboard-guide">Dashboard</a>.</p>
+<h2 id="repo-artifact"><a class="header" href="#repo-artifact">Repo Artifact</a></h2>
+<p>A Repo Artifact is a snapshot of the repo or workspace an uploaded session worked in. It gives reviewers the code context to judge whether the session is relevant and useful. Attached repos must be private.</p>
+<h2 id="effective-tokens"><a class="header" href="#effective-tokens">Effective Tokens</a></h2>
+<p>Effective tokens are the cost-weighted token volume used to calculate Arca rewards. Only turns that used an eligible model count, with input, output and cache tokens weighted by their cost. The current effective token threshold is <strong>50,000 tokens</strong>, and sessions below this threshold are not eligible for rewards.</p>
+<h2 id="eligible-ai-models"><a class="header" href="#eligible-ai-models">Eligible AI Models</a></h2>
+<p>AI models currently eligible for rewards: <strong>Claude Fable</strong>, <strong>Claude Opus</strong>, <strong>GPT-5.4</strong>, <strong>GPT-5.5</strong>, <strong>GPT-5.6, GPT-6</strong> and <strong>GPT-6.1</strong>.</p>
+<h2 id="quote-range"><a class="header" href="#quote-range">Quote Range</a></h2>
+<p>A Quote Range is a preliminary estimated reward range after Arca verifies and evaluates a completed session upload. It is for reference only and may differ from the final reward.</p>
+<h2 id="contributor-reputation-score"><a class="header" href="#contributor-reputation-score">Contributor Reputation Score</a></h2>
+<p>The reputation score rates a Contributor’s GitHub account on its history and activity. Higher scores can raise quotes. It shows in the <a href="#connect-github">Dashboard</a> profile and updates weekly.</p>
+<h2 id="payout"><a class="header" href="#payout">Payout</a></h2>
+<p>A Payout is the settlement of approved rewards to a Contributor. Arca currently pays in <strong>USDC</strong> to the Web3 wallet connected in the Dashboard. Supported wallets:</p>
+<ul>
+<li>MetaMask</li>
+<li>Rabby</li>
+<li>Coinbase Wallet</li>
+<li>WalletConnect</li>
+</ul>
+<p>More payout methods may follow.</p>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="5-reward-rules"><a class="header" href="#5-reward-rules">5. Reward Rules</a></h1>
+<p>Rewards depend on the quality and value of the submitted session. Arca evaluates the session and any optional repo or workspace context to determine whether it contains useful, authentic, and eligible AI workflow data.</p>
+<p>In general, submissions with stronger relevance, authenticity, and meaningful AI interaction are more likely to receive higher rewards.</p>
+<h2 id="qualification-rules"><a class="header" href="#qualification-rules">Qualification Rules</a></h2>
+<p>A submission may qualify for reward evaluation when it meets the following conditions:</p>
+<ul>
+<li>Supported source: The session comes from a source currently supported by Arca, such as Claude Code, Codex, Claude Cowork, VS Code extensions, or Cursor cloud agent.</li>
+<li><a href="#call-for-data">Call-for-Data</a> match: The submission must match a listed Call-for-Data requirement in the <a href="#7-contributor-dashboard-guide">Dashboard</a>, such as the requested programming language, AI model, or other stated criteria.</li>
+<li><a href="#eligible-ai-models">Eligible AI model</a>: The session uses at least one model currently listed as eligible.</li>
+<li>Above minimum <a href="#effective-tokens">effective tokens threshold</a>: The session has reached the required effective token threshold. If the session was previously uploaded, only new interactions added since that upload count toward this threshold and its next quote.</li>
+<li>Non-duplicate submission: The session must not duplicate a previous submission. A previously uploaded session becomes eligible again only when its new interactions meet the effective-token threshold.</li>
+<li>Authentic and unaltered session: The original session data must come directly from a supported source and must not be manually edited before submission.</li>
+</ul>
+<h2 id="what-affects-the-rewards"><a class="header" href="#what-affects-the-rewards">What Affects the Rewards</a></h2>
+<p>Arca evaluates each session individually. Estimated quote ranges and final reward amounts may be influenced by:</p>
+<ul>
+<li>AI interaction quality: Whether the AI session shows meaningful problem solving, clear prompts, useful responses, tool usage, and progress toward a result.</li>
+<li>Effective interaction volume: The amount of meaningful AI activity in the session, measured using <a href="#effective-tokens">effective tokens</a>.</li>
+<li><a href="#contributor-reputation-score">Contributor reputation score</a>: GitHub account credibility and activity can contribute to the reward.</li>
+<li>Repo relevance: For supported coding sessions, attaching the matching repo or workspace can provide additional context and may increase the quote.</li>
+</ul>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="6-arca-app-guide"><a class="header" href="#6-arca-app-guide">6. Arca App Guide</a></h1>
+<p>The Arca App finds eligible Claude Code and Codex sessions already saved on your device and can import Claude Cowork sessions from Claude Desktop. Choose which sessions to submit and optionally attach a matching repo or workspace. The Arca App anonymizes the selected data before upload and generates a preliminary quote range.</p>
+<p>The Arca App is easy to use. Follow this guide to get started in a few steps.</p>
+<h2 id="step-1-install-the-arca-app-and-sign-insign-up"><a class="header" href="#step-1-install-the-arca-app-and-sign-insign-up">Step 1. Install the Arca App and Sign In/Sign Up</a></h2>
+<p>The Arca App is available for macOS and Windows. Download and install the latest version from the <a href="#7-contributor-dashboard-guide">Contributor Dashboard</a>.</p>
+<p>Click the button on App homepage to sign in or create your Arca account, then complete the process on the Contributor Dashboard in your browser.</p>
+<figure><img src="assets/Screenshot 2026-09-14 at 14.35.11 (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<h2 id="step-2-find-claude-code-and-codex-sessions"><a class="header" href="#step-2-find-claude-code-and-codex-sessions">Step 2. Find Claude Code and Codex Sessions</a></h2>
+<p>After signing in, the Arca App shows <em><strong>Claude Code and Codex</strong></em> sessions found on your device that use <a href="#eligible-ai-models">eligible AI models</a>, along with each session’s coding tool, session start time, conversation rounds, and status. You can also click <em>“Import from Cursor”</em> to import eligible sessions created with Cursor Cloud Agent. Arca will use your existing Cursor sign-in; if you’re not already signed in, Arca will open Cursor and prompt you to sign in first.</p>
+<p>Arca lists sessions above the 50,000 <a href="#effective-tokens">effective token</a> threshold by default; choose “<em>Show all</em>” to view all sessions. You can refresh the list, search by session name, filter by coding tool or status, and sort by session start time or conversation rounds. </p>
+<p>You can also switch to the <em><strong>Claude Cowork</strong></em> tab to import and view Cowork sessions.</p>
+<figure><img src="assets/Screenshot 2026-10-12 at 13.23.10 (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<p>Each session has one of four statuses:</p>
+<ul>
+<li>Eligible: The session meets the current upload requirements and can be selected. Eligibility does not guarantee a reward. If you want to exclude an eligible session from future uploads, you can click “…” to select “<em>Never upload this session”</em>.</li>
+</ul>
+<figure><img src="assets/Screenshot 2026-09-14 at 16.30.27.png" alt=""><figcaption></figcaption></figure>
+<ul>
+<li>Not Eligible: The session cannot be uploaded yet because it has fewer than 50,000 <a href="#effective-tokens">effective tokens</a>. Continue working on this session until it reaches the required token threshold.</li>
+</ul>
+<figure><img src="assets/Screenshot 2026-09-14 at 17.02.12.png" alt=""><figcaption></figcaption></figure>
+<ul>
+<li>Never Upload: You chose to exclude this session from uploads. You can reverse this at any time by selecting  “<em>Enable for upload</em> “.</li>
+</ul>
+<figure><img src="assets/Screenshot 2026-09-14 at 16.29.57.png" alt=""><figcaption></figcaption></figure>
+<ul>
+<li>Uploaded: The session has been uploaded, with no new interactions detected since then. If enough new activity is added, it may become eligible for another upload. You can also check the previous uploaded session data by selecting  “<em>Download previous upload</em>“. This will lead you to the <a href="#track-submissions">Dashboard</a>, where you can view and download it.</li>
+</ul>
+<figure><img src="assets/Screenshot 2026-09-14 at 16.30.49 (1).png" alt=""><figcaption></figcaption></figure>
+<h2 id="step-3-import-claude-cowork-sessions"><a class="header" href="#step-3-import-claude-cowork-sessions">Step 3. Import Claude Cowork Sessions</a></h2>
+<p>On the <em><strong>Claude Cowork</strong></em> tab, click “<em>Import From Claude Desktop”</em> (or “<em>Import New</em>”) to load your Cowork sessions. Arca lists sessions above the 50,000 <a href="#effective-tokens">effective token</a> threshold by default; choose “<em>Show all</em>” to view all sessions.</p>
+<p><strong>Note</strong>: Arca opens Claude Desktop to import Cowork sessions. If Claude Desktop is already open, Arca will restart it, so make sure to finish any active work before importing.</p>
+<figure><img src="assets/截屏2026-09-14 18.35.13.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="assets/Screenshot 2026-09-14 at 18.29.00.png" alt="" width="563"><figcaption></figcaption></figure>
+<h2 id="step-4-upload-selected-sessions-and-get-quote"><a class="header" href="#step-4-upload-selected-sessions-and-get-quote">Step 4. Upload Selected Sessions and Get Quote</a></h2>
+<p>Select the sessions you want to submit to Arca for reward evaluation, then click “<em>Upload Selected</em>”. Confirm the upload in the pop-up to get a quote range. </p>
+<p>You can optionally attach the repo or workspace each session was working in, which may raise the quote, or upload the session without one.</p>
+<figure><img src="assets/Screenshot 2026-09-14 at 17.07.51.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="assets/Screenshot 2026-09-14 at 17.24.57.png" alt="" width="563"><figcaption></figcaption></figure>
+<h2 id="step-5-uploading-and-getting-quote"><a class="header" href="#step-5-uploading-and-getting-quote">Step 5. Uploading and Getting Quote</a></h2>
+<p>After you confirm, Arca anonymizes and uploads your selected sessions. Each session shows its upload progress. Its quote range appears once the upload reaches 100% and the preliminary evaluation finishes.</p>
+<figure><img src="assets/Screenshot 2026-09-14 at 17.31.37.png" alt="" width="563"><figcaption></figcaption></figure>
+<p>Once uploaded sessions receive a quote range, confirm to submit them to Arca if you accept the quotes. Final review may take a few days, you can visit “<a href="#track-submissions">My Submissions</a>” on the Contributor Dashboard to track the status and view your final earnings. </p>
+<p>If you don’t accept a quote, you can withdraw the submission. The upload is deleted and Arca keeps nothing from withdrawn submissions.</p>
+<figure><img src="assets/Screenshot 2026-09-14 at 17.40.47.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="assets/Screenshot 2026-09-14 at 18.44.35.png" alt="" width="563"><figcaption></figcaption></figure>
+<p>If an upload is interrupted by a network error, your progress will be saved. Click “<em>Retry Upload</em>” to resume the upload.</p>
+<figure><img src="assets/image (2).png" alt="" width="563"><figcaption></figcaption></figure>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="7-contributor-dashboard-guide"><a class="header" href="#7-contributor-dashboard-guide">7. Contributor Dashboard Guide</a></h1>
+<p>The Contributor Dashboard is where Contributors sign-in, connect a GitHub account, browse available Call-for-Data opportunities, track submissions, and view earnings and payout history. </p>
+<p>To access the dashboard, please visit: <a href="https://dashboard.arca.market/">https://dashboard.arca.market/</a>.</p>
+<h3 id="sign-in-or-sign-up"><a class="header" href="#sign-in-or-sign-up">Sign in or Sign up</a></h3>
+<p>Visit the <a href="https://dashboard.arca.market/">Contributor Dashboard</a> and sign-in/sign-up with an email or Google account.</p>
+<figure><img src="assets/Screenshot 2026-09-11 at 14.41.42.png" alt="" width="563"><figcaption></figcaption></figure>
+<h3 id="accept-terms-and-privacy-policy"><a class="header" href="#accept-terms-and-privacy-policy">Accept terms and privacy policy</a></h3>
+<p>New users must accept Terms of Service and Privacy Policy before sign-up is complete.</p>
+<p>Note: Arca is currently <strong>invite-only</strong>. Enter your invite code on the sign-up screen.</p>
+<figure><img src="assets/Screenshot 2026-09-11 at 14.45.40.png" alt="" width="563"><figcaption></figcaption></figure>
+<h3 id="connect-github"><a class="header" href="#connect-github">Connect GitHub</a></h3>
+<p>Connect GitHub to unlock submission review and reputation-based reward signals. Once connected, your GitHub <a href="#contributor-reputation-score">reputation score</a> will appear in the top-right corner. </p>
+<figure><img src="assets/Screenshot 2026-09-11 at 14.49.56.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="assets/Screenshot 2026-09-11 at 15.15.57.png" alt="" width="563"><figcaption></figcaption></figure>
+<h3 id="check-the-tutorial"><a class="header" href="#check-the-tutorial">Check the tutorial</a></h3>
+<p>The tutorial walks through the Dashboard: install app, browser open calls, upload sessions, and connect a wallet to get paid. You may skip this step.</p>
+<figure><img src="assets/Screenshot 2026-09-11 at 14.54.51.png" alt="" width="563"><figcaption></figcaption></figure>
+<h3 id="get-started"><a class="header" href="#get-started">Get Started</a></h3>
+<p>To get started, install the Arca app, browser available Call-for-Data opportunities, and connect a wallet.</p>
+<figure><img src="assets/Screenshot 2026-09-11 at 14.57.01.png" alt="" width="563"><figcaption></figcaption></figure>
+<h3 id="install-and-run-the-arca-app"><a class="header" href="#install-and-run-the-arca-app">Install and run the Arca App</a></h3>
+<p>To submit AI sessions, first install the Arca App. Please refer to <a href="#6-arca-app-guide">this guide</a> to learn how the Arca App works.</p>
+<h3 id="track-submissions"><a class="header" href="#track-submissions">Track submissions</a></h3>
+<p>Check My Submissions to track each submission through In review, Approved or Rejected. Each row shows a session ID, an artifact hash and a download of exactly what was uploaded, so you can check what was reviewed against what you sent.</p>
+<figure><img src="assets/Screenshot 2026-09-11 at 15.06.49 (2).png" alt="" width="563"><figcaption></figcaption></figure>
+<h3 id="manage-profile"><a class="header" href="#manage-profile">Manage profile</a></h3>
+<p>You can manage your account information, avatar, display name, connected accounts and connected wallet in Profile page.</p>
+<figure><img src="assets/Screenshot 2026-09-11 at 15.09.19 (1).png" alt="" width="563"><figcaption></figcaption></figure>
+<h3 id="check-earnings-and-connect-payout-wallet"><a class="header" href="#check-earnings-and-connect-payout-wallet">Check earnings and connect payout wallet</a></h3>
+<p>The Earnings &amp; Payouts page shows total earnings, payouts, available balance, and payment methods. </p>
+<figure><img src="assets/Screenshot 2026-09-11 at 15.13.53.png" alt="" width="563"><figcaption></figcaption></figure>
+<p>If no payout wallet is connected, click “CONNECT WEB3 WALLET” and choose a supported wallet provider and sign the message to connect. </p>
+<figure><img src="assets/Screenshot 2026-07-09 at 16.47.04.png" alt="" width="563"><figcaption></figcaption></figure>
+<figure><img src="assets/Screenshot 2026-07-09 at 16.47.26.png" alt="" width="563"><figcaption></figcaption></figure>
+<div style="break-before: page; page-break-before: always;"></div>
+<h1 id="8-terms--privacy"><a class="header" href="#8-terms--privacy">8. Terms &amp; Privacy</a></h1>
+<p>These policies apply to the Arca App, Contributor Dashboard, and related Arca services.</p>
+<h2 id="terms-of-service"><a class="header" href="#terms-of-service">Terms of Service</a></h2>
+<p>Understand the rules for using Arca. <a href="https://landing.arca.market/tos.pdf">Read the Terms of Service →</a></p>
+<h2 id="privacy-policy"><a class="header" href="#privacy-policy">Privacy Policy</a></h2>
+<p>Learn what data Arca collects, and how it is used and protected. <a href="https://landing.arca.market/privacy_policy.pdf">Read the Privacy Policy →</a></p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+        <template id=fa-eye><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z"/></svg></span></template>
+        <template id=fa-eye-slash><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z"/></svg></span></template>
+        <template id=fa-copy><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M502.6 70.63l-61.25-61.25C435.4 3.371 427.2 0 418.7 0H255.1c-35.35 0-64 28.66-64 64l.0195 256C192 355.4 220.7 384 256 384h192c35.2 0 64-28.8 64-64V93.25C512 84.77 508.6 76.63 502.6 70.63zM464 320c0 8.836-7.164 16-16 16H255.1c-8.838 0-16-7.164-16-16L239.1 64.13c0-8.836 7.164-16 16-16h128L384 96c0 17.67 14.33 32 32 32h47.1V320zM272 448c0 8.836-7.164 16-16 16H63.1c-8.838 0-16-7.164-16-16L47.98 192.1c0-8.836 7.164-16 16-16H160V128H63.99c-35.35 0-64 28.65-64 64l.0098 256C.002 483.3 28.66 512 64 512h192c35.2 0 64-28.8 64-64v-32h-47.1L272 448z"/></svg></span></template>
+        <template id=fa-play><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80V432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg></span></template>
+        <template id=fa-clock-rotate-left><span class=fa-svg><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc. --><path d="M75 75L41 41C25.9 25.9 0 36.6 0 57.9V168c0 13.3 10.7 24 24 24H134.1c21.4 0 32.1-25.9 17-41l-30.8-30.8C155 85.5 203 64 256 64c106 0 192 86 192 192s-86 192-192 192c-40.8 0-78.6-12.7-109.7-34.4c-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6C151.2 495 201.7 512 256 512c141.4 0 256-114.6 256-256S397.4 0 256 0C185.3 0 121.3 28.7 75 75zm181 53c-13.3 0-24 10.7-24 24V256c0 6.4 2.5 12.5 7 17l72 72c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-65-65V152c0-13.3-10.7-24-24-24z"/></svg></span></template>
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr-ef4e11c1.min.js"></script>
+        <script src="mark-09e88c2c.min.js"></script>
+        <script src="searcher-c2a407aa.js"></script>
+
+        <script src="clipboard-1626706a.min.js"></script>
+        <script src="highlight-abc7f01d.js"></script>
+        <script src="book-a0b12cfe.js"></script>
+
+        <!-- Custom JS scripts -->
+        <script src="theme/mermaid-216156ec.js"></script>
+
+        <script>
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+
+
+    </div>
+    </body>
+</html>
