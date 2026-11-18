@@ -7,4 +7,4 @@
 * [Reward Rules](5.-reward-rules.md)
 * [Arca App Guide](6.-arca-app-guide.md)
 * [Contributor Dashboard Guide](7.-contributor-dashboard-guide.md)
-* [Terms & Privacy](8.-terms-and-privacy.md)
+* [Terms of Service & Privacy Policy](8.-terms-and-privacy.md)
